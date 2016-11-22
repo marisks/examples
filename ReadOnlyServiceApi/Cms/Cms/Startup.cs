@@ -7,8 +7,6 @@ using Owin;
 using System;
 using System.Web;
 
-[assembly: OwinStartup(typeof(Cms.Startup))]
-
 namespace Cms
 {
     public class Startup
@@ -38,6 +36,7 @@ namespace Cms
                 }
             });
 
+            new EPiServer.ServiceApi.Startup().Configuration(app);
 
         }
     }
