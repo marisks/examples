@@ -1,11 +1,18 @@
+using System;
+using System.Web;
 using System.Web.Mvc;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
 using Cms.Business.Rendering;
 using Cms.Helpers;
+using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Web.Mvc;
 using EPiServer.Web.Mvc.Html;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.OAuth;
 using StructureMap;
 
 namespace Cms.Business.Initialization
@@ -28,6 +35,11 @@ namespace Cms.Business.Initialization
             container.For<ContentAreaRenderer>().Use<AlloyContentAreaRenderer>();
 
             //Implementations for custom interfaces can be registered here.
+            container.For<IOAuthAuthorizationServerProvider>().Use<IdentityAuthorizationProvider>();
+
+            Func<IOwinContext> owinContextFunc = () => HttpContext.Current.GetOwinContext();
+            container.For<ApplicationUserManager<ApplicationUser>>().Use(() => owinContextFunc().GetUserManager<ApplicationUserManager<ApplicationUser>>());
+            container.For<IAuthenticationManager>().Use(() => owinContextFunc().Authentication);
         }
 
         public void Initialize(InitializationEngine context)
