@@ -9,7 +9,7 @@ namespace Cms.Tests.Base
 {
     public abstract class ApiTestsBase : IDisposable
     {
-        private const string Username = "admin";
+        private const string Username = "RadOnlyService";
         private const string Password = "Episerver123%";
 
         protected readonly HttpClient Client;
