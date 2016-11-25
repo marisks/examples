@@ -1,5 +1,6 @@
 using System;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
@@ -13,6 +14,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
+using Newtonsoft.Json;
 using StructureMap;
 
 namespace Cms.Business.Initialization
@@ -26,6 +28,15 @@ namespace Cms.Business.Initialization
             context.Container.Configure(ConfigureContainer);
 
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(context.Container));
+
+            GlobalConfiguration.Configure(config =>
+            {
+                config.DependencyResolver = new StructureMapDependencyResolver(context.Container);
+                config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.LocalOnly;
+                config.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings();
+                config.Formatters.XmlFormatter.UseXmlSerializer = true;
+                config.MapHttpAttributeRoutes();
+            });
         }
 
         private static void ConfigureContainer(ConfigurationExpression container)
