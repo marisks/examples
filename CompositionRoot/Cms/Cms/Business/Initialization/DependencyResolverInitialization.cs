@@ -27,6 +27,7 @@ namespace Cms.Business.Initialization
         {
             context.Container.Configure(ConfigureContainer);
 
+            // Comment out when using only controller factory 
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(context.Container));
 
             GlobalConfiguration.Configure(config =>
@@ -37,6 +38,9 @@ namespace Cms.Business.Initialization
                 config.Formatters.XmlFormatter.UseXmlSerializer = true;
                 config.MapHttpAttributeRoutes();
             });
+
+            // Comment out when using resolver but register controller factory in the container
+            // ControllerBuilder.Current.SetControllerFactory(new CompositionRoot(context.Container));
         }
 
         private static void ConfigureContainer(ConfigurationExpression container)
@@ -51,6 +55,8 @@ namespace Cms.Business.Initialization
             Func<IOwinContext> owinContextFunc = () => HttpContext.Current.GetOwinContext();
             container.For<ApplicationUserManager<ApplicationUser>>().Use(() => owinContextFunc().GetUserManager<ApplicationUserManager<ApplicationUser>>());
             container.For<IAuthenticationManager>().Use(() => owinContextFunc().Authentication);
+
+            container.For<IControllerFactory>().Use<CompositionRoot>();
         }
 
         public void Initialize(InitializationEngine context)
