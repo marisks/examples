@@ -202,6 +202,7 @@ FakesAssemblies/
 product_images/
 .idea
 node_modules
+**/App_Data/blobs/**
 
 License.config
 *.orig
