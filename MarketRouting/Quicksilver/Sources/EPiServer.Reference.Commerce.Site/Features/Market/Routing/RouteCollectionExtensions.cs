@@ -30,17 +30,16 @@ namespace EPiServer.Reference.Commerce.Site.Features.Market.Routing
 
         public static void MapMarketSegment(this RouteCollection routes)
         {
-            var parameters = new MapContentRouteParameters
-            {
-                Direction = SupportedDirection.Both
-            };
             var segment = new MarketSegment(MarketService, CurrentMarket);
             var segmentMappings = new Dictionary<string, ISegment> { { MarketSegment.SegmentName, segment } };
-            parameters.SegmentMappings = segmentMappings;
-
+            var parameters = new MapContentRouteParameters
+            {
+                Direction = SupportedDirection.Both,
+                SegmentMappings = segmentMappings
+            };
             routes.InsertAndMapContentRoute(
                 index: routes.IndexOf("pages"),
-                name: "market",
+                name: MarketSegment.SegmentName,
                 url: "{language}/{market}/{node}/{partial}/{action}",
                 defaults: new { action = "index" },
                 parameters: parameters);
