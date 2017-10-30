@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alloy", "Alloy\Alloy.csproj", "{4CEB20B1-AD70-421C-8D0E-22A90F1F1E9D}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "UITests", "UITests\UITests.fsproj", "{7E2680E1-88D1-43A7-B8D0-24324322CF6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alloy", "Alloy\Alloy.csproj", "{E8E948C3-9E10-4214-8388-1E6EB8E0FB92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4CEB20B1-AD70-421C-8D0E-22A90F1F1E9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4CEB20B1-AD70-421C-8D0E-22A90F1F1E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4CEB20B1-AD70-421C-8D0E-22A90F1F1E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4CEB20B1-AD70-421C-8D0E-22A90F1F1E9D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7E2680E1-88D1-43A7-B8D0-24324322CF6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7E2680E1-88D1-43A7-B8D0-24324322CF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E2680E1-88D1-43A7-B8D0-24324322CF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E2680E1-88D1-43A7-B8D0-24324322CF6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8E948C3-9E10-4214-8388-1E6EB8E0FB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8E948C3-9E10-4214-8388-1E6EB8E0FB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8E948C3-9E10-4214-8388-1E6EB8E0FB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8E948C3-9E10-4214-8388-1E6EB8E0FB92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
