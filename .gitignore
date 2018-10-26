@@ -203,6 +203,7 @@ product_images/
 .idea
 node_modules
 **/App_Data/blobs/**
+**/App_Data/Index/**
 
 License.config
 *.orig
