@@ -110,6 +110,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentEvent.cs" />
+    <Compile Include="ContentEventLogger.cs" />
+    <Compile Include="ContentEventLoggerExtensions.cs" />
+    <Compile Include="Initializer.cs" />
+    <Compile Include="InitializerSettings.cs" />
+    <Compile Include="LoggerSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
